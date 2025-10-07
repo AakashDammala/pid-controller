@@ -1,12 +1,11 @@
-#include "lib.hpp"
-#include "lib1.hpp"
-#include "lib2.hpp"
+// #include "lib.hpp"
+#include "libpid.hpp"
+#include <iostream>
 
 int main() {
-  dummy();
-  my_function1(30);
-  bool cond = true;
-  if (cond)
-    my_function2(30.3);
+  PIDController pid_controller;
+  double error = 10.0;
+  double response = pid_controller.compute(error);
+  printf("PID controller response for error [%.2lf] is [%.2lf]\n", error, response);
   return 0;
 }
