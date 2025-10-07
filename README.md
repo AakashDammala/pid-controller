@@ -1,6 +1,6 @@
 # PID Controller
 
-![CICD Workflow status](https://github.com/AakashDammala/pid-controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/AakashDammala/pid-controller/branch/main/graph/badge.svg)](https://codecov.io/gh/AakashDammala/pid-controller) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![CICD Workflow status](https://github.com/AakashDammala/pid-controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/AakashDammala/pid-controller/branch/pid-controller-impl/graph/badge.svg)](https://codecov.io/gh/AakashDammala/pid-controller) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 
 ## Overview
