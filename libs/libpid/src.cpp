@@ -30,9 +30,14 @@ PIDController::~PIDController() {
 /**
  * @brief Compute the controller output (implementation).
  * @param target_setpoint Desired setpoint.
- * @param actual_velocity Measured value.
+ * @param measured_value Measured value.
  * @return double Controller output (placeholder value).
  */
-double PIDController::compute(double target_setpoint, double actual_velocity) {
-  return 10.0; // stub implementation
+double PIDController::compute(double target_setpoint, double measured_value) {
+  
+  double error = target_setpoint - measured_value;
+
+  double proportional_output = Kp_ * error; // P term
+
+  return proportional_output;
 }

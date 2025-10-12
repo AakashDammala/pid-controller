@@ -36,10 +36,10 @@ public:
   /**
    * @brief Compute controller output for a single timestep.
    * @param target_setpoint Desired setpoint.
-   * @param actual_velocity Current measurement.
+   * @param measured_value Current measurement.
    * @return double Controller output clamped to [min_output, max_output].
    */
-  double compute(double target_setpoint, double actual_velocity);
+  double compute(double target_setpoint, double measured_value);
 
 private:
   const double Kp_; // proportional gain
