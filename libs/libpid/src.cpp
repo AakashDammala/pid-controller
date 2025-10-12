@@ -47,5 +47,12 @@ double PIDController::compute(double target_setpoint, double measured_value) {
 
   double output = proportional_output + derivative_output + integral_output; // PID output before clamping
   
+  // Clamp output to [min_output_, max_output_]
+  if (output > max_output_) {
+    output = max_output_;
+  } else if (output < min_output_) {
+    output = min_output_;
+  }
+  
   return output;
 }
