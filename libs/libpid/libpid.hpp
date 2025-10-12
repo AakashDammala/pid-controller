@@ -49,4 +49,5 @@ private:
   const double min_output_; // minimum output provided by the controller
   const double max_output_; // maximum output provided by the controller 
   double prev_error_; // previous error value
+  double integral_error_; // cumulative integral error
 };

@@ -41,7 +41,11 @@ double PIDController::compute(double target_setpoint, double measured_value) {
   double derivative_output = Kd_ * (error - prev_error_) / delta_time_; // D term
 
   prev_error_ = error; // Update previous error
-  double output = proportional_output + derivative_output; // PID output before clamping
 
+  integral_error_ += error * delta_time_; 
+  double integral_output = Ki_ * integral_error_; // I term
+
+  double output = proportional_output + derivative_output + integral_output; // PID output before clamping
+  
   return output;
 }
