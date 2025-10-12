@@ -48,4 +48,5 @@ private:
   const double delta_time_; // loop time of the controller
   const double min_output_; // minimum output provided by the controller
   const double max_output_; // maximum output provided by the controller 
+  double prev_error_; // previous error value
 };

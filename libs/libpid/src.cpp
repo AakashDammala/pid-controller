@@ -38,6 +38,10 @@ double PIDController::compute(double target_setpoint, double measured_value) {
   double error = target_setpoint - measured_value;
 
   double proportional_output = Kp_ * error; // P term
+  double derivative_output = Kd_ * (error - prev_error_) / delta_time_; // D term
 
-  return proportional_output;
+  prev_error_ = error; // Update previous error
+  double output = proportional_output + derivative_output; // PID output before clamping
+
+  return output;
 }
