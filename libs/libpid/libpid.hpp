@@ -50,4 +50,25 @@ private:
   const double max_output_; // maximum output provided by the controller 
   double prev_error_; // previous error value
   double integral_error_; // cumulative integral error
+  /**
+   * @brief Compute the proportional term
+   * 
+   * @param error Error value
+   * @return double Controller proportional output
+   */
+  double compute_propotional(double error); // Compute proportional term
+  /**
+   * @brief Compute the derivative term
+   * 
+   * @param error Error value
+   * @return double Controller derivative output
+   */
+  double compute_derivative(double error); // Compute derivative term
+  /**
+   * @brief Compute the integral term
+   * 
+   * @param error Error value
+   * @return double Controller integral output
+   */
+  double compute_integral(double error); // Compute integral term
 };

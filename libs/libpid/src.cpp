@@ -9,41 +9,27 @@
 
  #include "libpid.hpp"
 
-/**
- * @brief Construct the PIDController object (implementation).
- */
 PIDController::PIDController(const double Kp, const double Ki, const double Kd,
                              const double delta_time, const double min_output,
                              const double max_output)
     : Kp_(Kp), Ki_(Ki), Kd_(Kd), delta_time_(delta_time),
       min_output_(min_output), max_output_(max_output) {
+  prev_error_ = 0.0; // initialize previous error to zero
+  integral_error_ = 0.0; // initialize integral error to zero
   // initialize internal state if needed
 }
 
-/**
- * @brief Destroy the PIDController object (implementation).
- */
 PIDController::~PIDController() {
   // no dynamic resources to free
 }
 
-/**
- * @brief Compute the controller output (implementation).
- * @param target_setpoint Desired setpoint.
- * @param measured_value Measured value.
- * @return double Controller output (placeholder value).
- */
 double PIDController::compute(double target_setpoint, double measured_value) {
   
   double error = target_setpoint - measured_value;
 
-  double proportional_output = Kp_ * error; // P term
-  double derivative_output = Kd_ * (error - prev_error_) / delta_time_; // D term
-
-  prev_error_ = error; // Update previous error
-
-  integral_error_ += error * delta_time_; 
-  double integral_output = Ki_ * integral_error_; // I term
+  double proportional_output = compute_propotional(error); // P term
+  double derivative_output = compute_derivative(error); // D term
+  double integral_output = compute_integral(error) ;
 
   double output = proportional_output + derivative_output + integral_output; // PID output before clamping
   
@@ -55,4 +41,19 @@ double PIDController::compute(double target_setpoint, double measured_value) {
   }
   
   return output;
+}
+
+double PIDController::compute_propotional(double error) {
+  return Kp_ * error; // P term;
+}
+
+double PIDController::compute_derivative(double error) {
+  double derivative_output = Kd_ * (error - prev_error_) / delta_time_; // D term
+  prev_error_ = error; // Update previous error
+  return derivative_output;
+}
+
+double PIDController::compute_integral(double error) {
+  integral_error_ += error * delta_time_; // Update integral error
+  return Ki_ * integral_error_; // I term
 }
