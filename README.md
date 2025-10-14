@@ -60,6 +60,17 @@ All unit tests pass successfully:
 * Robustness: Correct accumulation of integral term and derivative computation
 * Clamping: Output consistently respects specified bounds
 
+### Additional Notes
+Based on our review, we recommend :
+- [ ] Having seperate directories for headers and source files
+- [ ] Test for more scenarios.
+- [ ] Performance test for control loop timing
+
+### TODO Items
+- Only set prev error and integral error after 2 readings.
+- Add reset() method to clear integral and derivative state.
+- Update test for SetpointEqualsMeasurement for non zero prior error. 
+
 
 ## Instructions to run the project
 
