@@ -1,5 +1,6 @@
-#include "libpid.hpp"
 #include <iostream>
+
+#include "libpid.hpp"
 
 int main() {
   // Constructing PIDController object

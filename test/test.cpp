@@ -5,7 +5,7 @@
  * @version 0.1
  * @date 2025-10-07
  * @copyright Copyright (c) 2025
- * 
+ *
  * PID Controller Formulas:
  * Error = Setpoint - Measured Value
  * Proportional Output = Kp * Error
@@ -14,8 +14,9 @@
  * Total Output = Proportional Output + Integral Output + Derivative Output
  */
 
-#include "libpid.hpp"
 #include <gtest/gtest.h>
+
+#include "libpid.hpp"
 
 /**
  * @brief When setpoint equals measurement, controller should return zero value.
@@ -35,7 +36,7 @@ TEST(PIDControllerTest, SetpointEqualsMeasurement) {
   PIDController controller(1.0, 0.1, 0.01, 0.1, -100.0, 100.0);
 
   double setpoint = 5.0;
-  double measurement = 5.0; // same as setpoint
+  double measurement = 5.0;  // same as setpoint
   double expected = 0.0;
 
   double output = controller.compute(setpoint, measurement);
